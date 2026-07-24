@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Saransh Singh | Security Research</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+        <link rel="stylesheet" href="css/styles.css?v=6" />
+
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+                options: {
+                    skipHtmlTags: [
+                        "script",
+                        "noscript",
+                        "style",
+                        "textarea",
+                        "pre",
+                    ],
+                },
+            };
+        </script>
+        <script
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+        <script type="module" src="js/main.js?v=5"></script>
+    </head>
+    <body>
+        <canvas id="bg-canvas" aria-hidden="true"></canvas>
+        <div id="boot-overlay" aria-live="polite">
+            <div id="boot-card">
+                <pre id="boot-ascii">  _____         _____            _   ___   __
+ / ____|  /\   |  __ \     /\   | \ | \ \ \ /
+| (___   /  \  | |__) |   /  \  |  \| |\ V /
+ \___ \ / /\ \ |  _  /   / /\ \ | . ` | > <
+ ____) / ____ \| | \ \  / ____ \| |\  |/ . \
+|_____/_/    \_\_|  \_\/_/    \_\_| \_/_/ \_\</pre>
+                <div id="boot-lines"></div>
+            </div>
+        </div>
+
+        <div id="reader-progress" aria-hidden="true"><span></span></div>
+
+        <div id="main-container">
+            <header class="sidebar">
+                <div class="terminal-titlebar">
+                    <div class="t-dots" aria-hidden="true">
+                        <span class="t-dot t-dot-r"></span>
+                        <span class="t-dot t-dot-y"></span>
+                        <span class="t-dot t-dot-g"></span>
+                    </div>
+                    <span class="t-hostname">saranx@192.88:~</span>
+                </div>
+
+                <div class="sidebar-body">
+                    <div class="ascii-logo-chip">
+                        <pre class="ascii-chip-pre">  _____         _____            _   ___   __
+ / ____|  /\   |  __ \     /\   | \ | \ \ \ /
+| (___   /  \  | |__) |   /  \  |  \| |\ V /
+ \___ \ / /\ \ |  _  /   / /\ \ | . ` | > <
+ ____) / ____ \| | \ \  / ____ \| |\  |/ . \
+|_____/_/    \_\_|  \_\/_/    \_\_| \_/_/ \_\</pre>
+                    </div>
+                    <div class="profile-block">
+                        <img
+                            id="profile-pic"
+                            src="res/prof.svg"
+                            alt="Saransh"
+                            onerror="this.src = 'res/prof.svg'"
+                        />
+                        <div>
+                            <div class="prompt-row">
+                                <span>$</span><span id="prompt-1"></span>
+                            </div>
+                            <h1 id="name"></h1>
+                        </div>
+                    </div>
+
+                    <div class="prompt-row">
+                        <span>$</span><span id="prompt-2"></span>
+                    </div>
+                    <p id="tagline">
+                        <span id="tagline-text"></span
+                        ><span class="t-cursor"></span>
+                    </p>
+
+                    <div class="prompt-row">
+                        <span>$</span><span id="prompt-3"></span>
+                    </div>
+                    <p id="bio"></p>
+
+                    <nav aria-label="Primary navigation">
+                        <div class="prompt-row">
+                            <span>$</span><span id="prompt-4"></span>
+                        </div>
+                        <ul class="nav-links">
+                            <li>
+                                <a
+                                    href="#about"
+                                    data-section="about"
+                                    class="nav-link active"
+                                    >about</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#experience"
+                                    data-section="experience"
+                                    class="nav-link"
+                                    >experience</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#projects"
+                                    data-section="projects"
+                                    class="nav-link"
+                                    >projects</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#blog"
+                                    data-section="blog"
+                                    class="nav-link"
+                                    >blog</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#contact"
+                                    data-section="contact"
+                                    class="nav-link"
+                                    >contact</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="sidebar-tools">
+                    <button
+                        id="theme-toggle"
+                        class="tool-button"
+                        type="button"
+                        aria-label="Toggle theme"
+                    >
+                        <span class="tool-icon" aria-hidden="true">◐</span>
+                        <span id="theme-label">dark</span>
+                    </button>
+                    <a
+                        href="res/saranx.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="tool-button"
+                    >
+                        <span class="tool-icon" aria-hidden="true">↓</span>
+                        <span>resume</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-socials">
+                    <p class="socials-label">// connect</p>
+                    <ul class="social-links" id="social-links"></ul>
+                </div>
+
+                <div class="terminal-statusbar">
+                    <span class="t-status-dot"></span>
+                    <span>systems nominal</span>
+                </div>
+            </header>
+
+            <main class="content-shell">
+                <section id="about" class="content-section active">
+                    <div class="section-kicker">research profile</div>
+                    <h2>
+                        Vulnerabilities, payloads, and systems that break
+                    </h2>
+                    <div id="about-content" class="prose about-text"></div>
+                </section>
+
+                <section id="experience" class="content-section">
+                    <div class="section-kicker">field log</div>
+                    <h2>Work history</h2>
+                    <div id="experience-container" class="timeline"></div>
+                </section>
+
+                <section id="projects" class="content-section">
+                    <div class="section-kicker">systems index</div>
+                    <h2>Projects</h2>
+                    <div id="projects-container" class="card-grid"></div>
+                </section>
+
+                <section id="blog" class="content-section blog-section">
+                    <div class="section-kicker">lab notes</div>
+                    <div class="section-heading-row">
+                        <h2>Blog</h2>
+                        <span id="blog-count" class="meta-pill"></span>
+                    </div>
+                    <div class="blog-layout">
+                        <div id="blog-container" class="blog-list"></div>
+                        <aside
+                            class="reader-dock"
+                            aria-label="Blog reader preview"
+                        >
+                            <div class="reader-empty">
+                                <span>select post</span>
+                                <p>
+                                    Notes, derivations, and build logs open here
+                                    with TOC, math, code, and reading progress.
+                                </p>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+
+                <section id="contact" class="content-section">
+                    <div class="section-kicker">open channel</div>
+                    <h2>Contact</h2>
+                    <p class="section-lede">
+                        cves, shells, or a broken exploit chain; <br>
+                        my inbox is open :)
+                    </p>
+                    <form id="contact-form" class="contact-form">
+                        <label>
+                            <span>Name</span>
+                            <input
+                                id="contact-name"
+                                name="name"
+                                type="text"
+                                autocomplete="name"
+                                placeholder="Your name"
+                            />
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input
+                                id="contact-email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                            />
+                        </label>
+                        <label>
+                            <span>Subject</span>
+                            <input
+                                id="contact-subject"
+                                name="subject"
+                                type="text"
+                                placeholder="Project, role, question..."
+                            />
+                        </label>
+                        <label>
+                            <span>Message</span>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                rows="8"
+                                placeholder="Write the message here"
+                            ></textarea>
+                        </label>
+                        <button class="primary-button" type="submit">
+                            compose email
+                        </button>
+                    </form>
+                    <p class="direct-email">
+                        Direct:
+                        <a
+                            id="direct-email"
+                            href="mailto:saranshsingh2006@gmail.com"
+                            >saranshsingh2006@gmail.com</a
+                        >
+                    </p>
+                </section>
+            </main>
+        </div>
+
+        <aside id="blog-reader" class="blog-reader" aria-hidden="true">
+            <div class="reader-backdrop" data-reader-close></div>
+            <div
+                class="reader-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="post-title"
+            >
+                <header class="reader-header">
+                    <button
+                        class="reader-close"
+                        type="button"
+                        data-reader-close
+                        aria-label="Close reader"
+                    >
+                        ×
+                    </button>
+                    <div class="reader-actions">
+                        <button
+                            id="reader-theme-toggle"
+                            class="tool-button compact"
+                            type="button"
+                        >
+                            reader: dark
+                        </button>
+                    </div>
+                </header>
+                <div class="reader-grid">
+                    <nav
+                        id="post-toc"
+                        class="post-toc"
+                        aria-label="Table of contents"
+                    ></nav>
+                    <article class="blog-post-content">
+                        <div id="post-meta" class="post-meta"></div>
+                        <h1 id="post-title" class="post-title"></h1>
+                        <div id="post-body" class="post-body prose"></div>
+                    </article>
+                </div>
+            </div>
+        </aside>
+        <button id="term-trigger" title="open terminal">&gt;_</button>
+        <div id="term-panel" hidden>
+            <div id="term-header">
+                <span id="term-header-label"><span id="term-dot"></span>guest@saranx: ~</span>
+                <button id="term-close">×</button>
+            </div>
+            <div id="term-log"></div>
+            <div id="term-input-row">
+                <span id="term-prompt">guest@saranx:~$</span>
+                <input id="term-input" placeholder="try `help`" autocomplete="off" />
+            </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="js/bg.js?v=3" defer></script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "date": "2025-01-15",
+      "title": "Wazuh SIEM Lab — Building a Home SOC from Scratch",
+      "content": "Full walkthrough of deploying Wazuh in Docker, writing custom detection rules, building dashboards, and simulating attacks. Covers agent deployment, log collection, MITRE ATT&CK mapping, and automated incident response.",
+      "tags": [
+        "soc",
+        "siem",
+        "wazuh",
+        "detection-engineering",
+        "blue-team"
+      ],
+      "read_me": "./blogs/wazuh-siem.md"
+    },
+    {
+      "date": "2025-03-22",
+      "title": "Buffer Overflows — From the Stack to Shell",
+      "content": "A practical deep-dive into stack-based buffer overflows on x86_64 Linux. Covers memory layout, register state at exploitation, return address overwrite techniques, NOP sleds, and bypassing common protections with custom vulnerable binary walkthroughs.",
+      "tags": [
+        "binary-exploitation",
+        "pwn",
+        "assembly",
+        "exploit-dev",
+        "red-team"
+      ],
+      "read_me": "./blogs/buffer-overflow.md"
+    },
+    {
+      "date": "2025-06-10",
+      "title": "C2 Architecture — Building a Minimal C2 Framework",
+      "content": "Design decisions behind a custom C2: HTTP/S vs DNS vs TCP protocol selection, AES-GCM encryption with key rotation, beacon timing with jitter, task queuing, and OpSec considerations. Source-level walkthrough of the ShadowGate framework core components.",
+      "tags": [
+        "c2",
+        "red-team",
+        "offensive-tooling",
+        "encryption",
+        "opsec"
+      ],
+      "read_me": "./blogs/c2-framework.md"
+    },
+    {
+      "date": "2025-08-05",
+      "title": "Active Directory Exploitation — A Practical Attack Path",
+      "content": "Walking through a full AD compromise chain from initial access to domain dominance. Covers SMB enumeration, Kerberoasting, AS-REP roasting, ACL abuse, lateral movement via WinRM, and DCSync — every step with tool commands and MITRE ATT&CK mappings.",
+      "tags": [
+        "active-directory",
+        "windows-security",
+        "lateral-movement",
+        "post-exploitation",
+        "red-team"
+      ],
+      "read_me": "./blogs/ad-exploitation.md"
+    }
+  ]
+}

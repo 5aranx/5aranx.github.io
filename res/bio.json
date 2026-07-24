@@ -1,0 +1,60 @@
+{
+  "profile": {
+    "name": "Saransh Singh",
+    "tagline": "security research, offensive tooling, and the bits that break",
+    "shortBio": "I find vulnerabilities, build red-team tooling, and write about exploitation tradecraft. My work spans binary exploitation, web security, adversary emulation, and detection engineering."
+  },
+  "about": {
+    "fullBio": "I work at the sharp end of offensive security. On the red side: binary exploitation, web application penetration testing, C2 framework development, and full-scope adversary emulation. On the blue side: SIEM detection engineering, log analysis, and understanding attacker TTPs to build better defenses.\n\nWhat connects both is the constraint problem. Finding a WAF bypass in three characters, weaponizing a race condition into a full compromise, or engineering a C2 channel that blends into legitimate HTTP traffic — the interesting work is always about doing more with the constraints you're given.\n\nMy interests land in vulnerability research, malware analysis, cloud security, and anything that requires understanding both the attacker's creativity and the defender's rigor. I don't draw a hard line between red and blue; the best security operators understand both sides of the kill chain."
+  },
+  "experience": [
+    {
+      "date": "May 2026 – Jun 2026",
+      "title": "Cyber Security Intern",
+      "company": "SafeSkillz Ltd, London : Remote",
+      "description": [
+        "Completed a structured Cybersecurity Internship Programme (16 May – 28 June 2026) delivered by SafeSkillz Ltd., London, through instructor-led sessions, weekly assessments, and practical lab assignments.",
+        "Gained hands-on exposure across cybersecurity fundamentals, network & cloud security, threat intelligence, web application security, and digital forensics & incident response.",
+        "Conducted Android mobile application penetration testing and system exploitation using the Metasploit Framework, covering Linux and Windows privilege escalation techniques.",
+        "Completed a Capstone Project — Vulnerable Machine Assessment — producing a technical report documenting methodology, findings, and recommended remediation measures.",
+        "Applied knowledge of UK GDPR compliance and data privacy standards through practical exercises aligned to UK regulatory requirements."
+      ]
+    },
+    {
+      "date": "2024 – Present",
+      "title": "Security Researcher",
+      "company": "Independent / CTF Teams",
+      "description": [
+        "Active CTF competitor — web exploitation, binary exploitation, cryptography, and forensics challenges.",
+        "Built custom tooling for automated reconnaissance, vulnerability scanning, and exploitation workflows.",
+        "Published technical writeups on vulnerability research, C2 architecture, and detection engineering."
+      ]
+    },
+    {
+      "date": "2024 – Present",
+      "title": "SOC / Detection Engineering (Lab)",
+      "company": "Home Lab Infrastructure",
+      "description": [
+        "Deployed Wazuh SIEM with 40+ custom detection rules mapped to MITRE ATT&CK, covering privilege escalation, persistence, credential access, and lateral movement.",
+        "Built automated alert triage pipelines with Slack/email notification routing and escalation logic.",
+        "Simulated attacker TTPs in isolated lab environments to validate detection coverage."
+      ]
+    },
+    {
+      "date": "2023 – 2024",
+      "title": "Offensive Security (Training Pathway)",
+      "company": "HTB, TryHackMe, Proving Grounds",
+      "description": [
+        "Completed 50+ active directory, web application, and network penetration testing lab machines.",
+        "Developed reusable methodology documentation for repeatable exploitation workflows.",
+        "Earned certifications across offensive security pathways including AD exploitation and web attacks."
+      ]
+    }
+  ],
+  "social": {
+    "github": "https://github.com/Saransh0503",
+    "linkedin": "https://linkedin.com/in/mastermorphix",
+    "email": "saranshsingh2006@gmail.com",
+    "twitter": "https://x.com/mastermorphix"
+  }
+}

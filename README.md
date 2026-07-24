@@ -55,14 +55,6 @@ python3 -m http.server 4173
 | `res/blog.json` | Blog index — register new posts here |
 | `res/blogs/*.md` | Blog post content in plain markdown |
 
-## Deployment
-
-Push to `main` → GitHub Pages auto-builds and deploys. The site lives at **https://saransh0503.github.io**.
-
-```sh
-git add -A && git commit -m "..." && git push
-```
-
 ## Verify
 
 ```sh
@@ -73,5 +65,4 @@ node --check js/render.js
 node --check js/theme.js
 node --check js/bg.js
 node --check js/terminal.js
-git diff --check
 ```

@@ -1,51 +1,69 @@
 # saranx.github.io
 
-Personal portfolio site — security research, offensive tooling, and systems thinking. Buildless by design, hosted on GitHub Pages. Everything renders in the browser from static files.
+**Terminal-themed portfolio** — security research, offensive tooling, and systems thinking. No build step, no frameworks, no bloat. Pure HTML/CSS/JS served over GitHub Pages.
+
+## Tech
+
+| Layer | What |
+|-------|------|
+| Shell | Static HTML — one `index.html`, zero frameworks |
+| Style | CSS custom properties, dark/light themes, terminal-first typography |
+| JS | Vanilla ES modules — data fetching, markdown rendering, hash routing, Three.js particle background |
+| Content | JSON for structured data, Markdown for blog posts — all fetched at runtime |
+| Hosting | GitHub Pages (auto-deploys from `main`) |
 
 ## Structure
 
 ```
 .
-├── index.html              # page shell, CDN script tags
-├── css/styles.css          # layout, themes, responsive styles
+├── index.html              # shell + CDN script tags
+├── css/styles.css          # layout, themes, responsive, typography
 ├── js/
 │   ├── bg.js               # Three.js 3D particle background
-│   ├── main.js             # bootstraps data, rendering, theme, contact form
+│   ├── main.js             # bootstraps data, rendering, theme, contact
 │   ├── data.js             # fetches JSON content
 │   ├── render.js           # renders about, experience, projects, blog cards
-│   ├── nav.js              # hash-based navigation
+│   ├── nav.js              # hash-based SPA navigation
 │   ├── blog.js             # markdown reader, TOC, read time, scroll progress
-│   ├── theme.js            # theme persistence via localStorage
-│   ├── terminal.js         # interactive command-line simulation
-│   └── boot.js             # startup overlay
+│   ├── theme.js            # localStorage theme persistence
+│   ├── terminal.js         # interactive terminal simulation
+│   └── boot.js             # startup overlay sequence
 └── res/
-    ├── bio.json            # profile, bio, experience, social links
-    ├── projects.json       # project cards
-    ├── blog.json           # post metadata and markdown paths
-    ├── blogs/*.md          # blog post content
-    ├── prof.svg            # profile avatar
+    ├── bio.json            # profile, bio, experience, socials
+    ├── projects.json       # project cards (sorted by priority)
+    ├── blog.json           # post metadata → markdown paths
+    ├── blogs/*.md          # blog posts in markdown
+    ├── prof.svg            # profile picture
     └── saranx.pdf          # resume
 ```
 
 ## Local Development
 
-Serve from the repository root over HTTP. The site fetches JSON and Markdown at runtime, so opening `index.html` directly from the filesystem will not work.
+The site fetches JSON and Markdown at runtime, so `file://` won't work. Serve over HTTP:
 
 ```sh
 python3 -m http.server 4173
+# → http://localhost:4173
 ```
-
-Then open `http://localhost:4173/`.
 
 ## Content Editing
 
-**Profile and experience**: edit `res/bio.json`. The experience array renders in order. Put the current role first.
+| File | What to edit |
+|------|-------------|
+| `res/bio.json` | Name, tagline, bio, experience list (first = current) |
+| `res/projects.json` | Project cards — order controlled by `priority` field |
+| `res/blog.json` | Blog index — register new posts here |
+| `res/blogs/*.md` | Blog post content in plain markdown |
 
-**Projects**: edit `res/projects.json`. Cards are sorted by `priority`.
+## Deployment
 
-**Blog posts**: add a Markdown file under `res/blogs/`, then register it in `res/blog.json`.
+Push to `main` → GitHub Pages auto-builds and deploys. The site lives at **https://saransh0503.github.io**.
 
-## Verification
+```sh
+git add -A && git commit -m "..." && git push
+```
+
+## Verify
 
 ```sh
 node --check js/main.js

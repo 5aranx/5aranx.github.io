@@ -5,7 +5,7 @@
       "title": "ShadowGate",
       "description": "HTTP/S command & control framework with AES-GCM encrypted beaconing, modular plugin architecture, and dynamic payload generation. Supports multi-client management, task queuing, encrypted exfiltration, and jitter-based beacon timing for OpSec.",
       "technologies": ["Python", "AES-GCM", "HTTP/S", "Threading", "JSON-RPC"],
-      "codeUrl": "https://github.com/Saransh0503/shadowgate",
+      "codeUrl": "https://github.com/5aranx/shadowgate",
       "videoUrl": ""
     },
     {
@@ -13,7 +13,7 @@
       "title": "PhantomRecon",
       "description": "Automated reconnaissance toolkit: subdomain enumeration via passive sources, port scanning with service fingerprinting, technology stack detection, and screenshot capture. Pipeline architecture with modular scanner plugins and structured JSON output.",
       "technologies": ["Python", "asyncio", "aiohttp", "Shodan API", "Masscan"],
-      "codeUrl": "https://github.com/Saransh0503/phantomrecon",
+      "codeUrl": "https://github.com/5aranx/phantomrecon",
       "videoUrl": ""
     },
     {
@@ -21,7 +21,7 @@
       "title": "Wazuh Sentinel",
       "description": "Custom SIEM detection engine: 40+ custom Wazuh rules mapped to MITRE ATT&CK covering T1055 (Process Injection), T1078 (Valid Accounts), T1003 (Credential Dumping), and T1482 (Domain Trust Discovery). Automated alert triage pipeline with Slack notification routing.",
       "technologies": ["Wazuh", "Elasticsearch", "Python", "YAML", "MITRE ATT&CK"],
-      "codeUrl": "https://github.com/Saransh0503/wazuh-sentinel",
+      "codeUrl": "https://github.com/5aranx/wazuh-sentinel",
       "videoUrl": ""
     },
     {
@@ -29,7 +29,7 @@
       "title": "BinaryForge",
       "description": "Binary exploitation framework: ROP chain builder, buffer overflow exploit generator, and format string vulnerability testing harness. Supports x86/x64 Linux targets with PIE/ASLR/NX bypass techniques and position-independent shellcode execution.",
       "technologies": ["Python", "pwntools", "x86_64 Assembly", "ROP", "ELF"],
-      "codeUrl": "https://github.com/Saransh0503/binaryforge",
+      "codeUrl": "https://github.com/5aranx/binaryforge",
       "videoUrl": ""
     },
     {
@@ -37,7 +37,7 @@
       "title": "PacketSentry",
       "description": "Network intrusion detection system using raw sockets and BPF for real-time packet capture and analysis. Detects port scans, ARP spoofing, DNS tunneling, and SYN floods with custom signature-based alerting and PCAP export.",
       "technologies": ["C", "libpcap", "BPF", "TCP/IP Stack", "Linux Raw Sockets"],
-      "codeUrl": "https://github.com/Saransh0503/packetsentry",
+      "codeUrl": "https://github.com/5aranx/packetsentry",
       "videoUrl": ""
     },
     {
@@ -45,7 +45,7 @@
       "title": "ForgeProxy",
       "description": "HTTP/HTTPS intercept proxy for web application testing. Request/response inspection, modification, and replay with built-in CA certificate generation for TLS interception. WebSocket support and automated fuzzing integration.",
       "technologies": ["Python", "asyncio", "HTTP/1.1", "TLS", "mitmproxy"],
-      "codeUrl": "https://github.com/Saransh0503/forgeproxy",
+      "codeUrl": "https://github.com/5aranx/forgeproxy",
       "videoUrl": ""
     },
     {
@@ -53,7 +53,7 @@
       "title": "CryptoBreach",
       "description": "Cryptographic attack toolkit: implementations of Bleichenbacher's padding oracle attack, RSA timing side-channel, hash length extension, and format-preserving oracle attacks. Educational tool for understanding real-world crypto vulnerabilities.",
       "technologies": ["Python", "Cryptography", "SageMath", "NumPy", "asn1crypto"],
-      "codeUrl": "https://github.com/Saransh0503/cryptobreach",
+      "codeUrl": "https://github.com/5aranx/cryptobreach",
       "videoUrl": ""
     }
   ]

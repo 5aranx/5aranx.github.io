@@ -55,6 +55,11 @@ export function renderBlog(posts) {
     const count = document.getElementById("blog-count");
     if (count) count.textContent = `${sortedPosts.length} posts`;
 
+    function estimateReadTime(content) {
+        const words = (content || '').split(/\s+/).filter(Boolean).length;
+        return `${Math.max(1, Math.ceil(words / 220))} min`;
+    }
+
     document.getElementById("blog-container").innerHTML = sortedPosts
         .map((post, i) => {
             const slug = post.slug || slugify(post.title);
@@ -62,7 +67,7 @@ export function renderBlog(posts) {
                 <article class="item-card blog-card" style="animation-delay:${i * 0.06}s">
                     <div class="card-top">
                         <span class="card-idx">[${pad(i + 1)}]</span>
-                        <span class="card-date">${escapeHtml(post.date || "")}</span>
+                        <span class="card-date">${escapeHtml(post.date || "")} · ${estimateReadTime(post.content)} read</span>
                     </div>
                     <a class="item-title-link" href="#blog/${slug}" data-post-slug="${slug}">${escapeHtml(post.title || "")}</a>
                     <p class="item-summary">${escapeHtml(post.content || "")}</p>

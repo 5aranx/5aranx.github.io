@@ -59,7 +59,7 @@ function cmdHelp() {
     const cmds = [
         ['help',               'show this list'],
         ['ls',                 'list contents of current directory'],
-        ['cd <dir>',           'enter a directory (about, projects, blog, contact)'],
+        ['cd <dir>',           'enter a directory (about, experience, projects, skills, blog, contact)'],
         ['cd <name>',          'inside projects/blog: open that item'],
         ['cd ..',              'go back up one directory'],
         ['cat <name>',         'read a brief overview of a file/directory'],
@@ -68,6 +68,9 @@ function cmdHelp() {
         ['theme <dark|light>', 'switch site theme'],
         ['open <social>',      'github, linkedin, twitter, email'],
         ['clear',              'clear this log'],
+        ['neofetch',           'display system info'],
+        ['matrix',             'enter the matrix'],
+        ['sudo',               'try to elevate privileges'],
     ];
     const maxLen = Math.max(...cmds.map(([c]) => c.length));
     return cmds.map(([c, d]) => c.padEnd(maxLen + 2) + d).join('\n');
@@ -75,9 +78,10 @@ function cmdHelp() {
 
 function cmdLs() {
     const dir = cwd[0];
-    if (!dir) return '<span class="term-dir">about/</span>  <span class="term-dir">projects/</span>  <span class="term-dir">blog/</span>  <span class="term-dir">contact/</span>';
+    if (!dir) return '<span class="term-dir">about/</span>  <span class="term-dir">experience/</span>  <span class="term-dir">projects/</span>  <span class="term-dir">skills/</span>  <span class="term-dir">blog/</span>  <span class="term-dir">contact/</span>';
     if (dir === 'projects') return _projects.map(p => `<span class="term-file">${p.slug}</span>`).join('  ') || '(no projects)';
     if (dir === 'blog')     return _posts.map(p => `<span class="term-file">${p.slug}</span>`).join('  ') || '(no posts)';
+    if (dir === 'skills')   return '<span class="term-file">offensive-security</span>  <span class="term-file">blue-team</span>  <span class="term-file">infrastructure</span>  <span class="term-file">web-security</span>  <span class="term-file">cryptography</span>';
     return `<span class="term-file">${dir}.md</span>`;
 }
 
@@ -88,7 +92,7 @@ function cmdCd(args) {
     if (!target || target === '~' || target === '/') { cwd = []; return ''; }
     if (target === '..') { cwd = []; return ''; }
 
-    const TOP = ['about', 'projects', 'blog', 'contact'];
+    const TOP = ['about', 'experience', 'projects', 'skills', 'blog', 'contact'];
     if (TOP.includes(target)) {
         cwd = [target];
         window.location.hash = target;
@@ -122,19 +126,23 @@ function cmdCat(args) {
     const dir = cwd[0];
 
     if (!dir) {
-        if (!target) return 'usage: cat <name>  (try: about, projects, blog, contact)';
+        if (!target) return 'usage: cat <name>  (try: about, experience, projects, skills, blog, contact)';
         if (target === 'about') {
             const n = (_bio?.experience || []).length;
             return [escHtml(_bio?.profile?.tagline), escHtml(_bio?.profile?.shortBio), `${n} roles logged — run <span class="term-command">\`cd about\`</span> for the full timeline.`].filter(Boolean).join('<br>');
         }
-        if (target === 'projects') return `${_projects.length} projects shipped — run <span class="term-command">\`cd projects\`</span> then <span class="term-command">\`ls\`</span> to browse.`;
-        if (target === 'blog')     return `${_posts.length} posts — run <span class="term-command">\`cd blog\`</span> then <span class="term-command">\`ls\`</span> to browse.`;
-        if (target === 'contact')  return 'reach out any time — run <span class="term-command">\`cd contact\`</span> or <span class="term-command">\`open email\`</span>.';
+        if (target === 'experience') return `${(_bio?.experience || []).length} work history entries logged — run <span class="term-command">\`cd experience\`</span>.`;
+        if (target === 'projects')   return `${_projects.length} projects shipped — run <span class="term-command">\`cd projects\`</span> then <span class="term-command">\`ls\`</span> to browse.`;
+        if (target === 'skills')     return 'Categories: Offensive Security, Blue Team, Infrastructure, Web Security, Cryptography — run <span class="term-command">\`cd skills\`</span>.';
+        if (target === 'blog')       return `${_posts.length} posts — run <span class="term-command">\`cd blog\`</span> then <span class="term-command">\`ls\`</span> to browse.`;
+        if (target === 'contact')    return 'reach out any time — run <span class="term-command">\`cd contact\`</span> or <span class="term-command">\`open email\`</span>.';
         return `<span class="term-error">cat: ${escHtml(target)}: no such file</span>`;
     }
 
-    if (dir === 'about')   return escHtml(_bio?.about?.fullBio) || '(no bio available)';
-    if (dir === 'contact') return `reach me at <span class="term-file">${escHtml(_bio?.social?.email)}</span> || '(email not set)'`;
+    if (dir === 'about')      return escHtml(_bio?.about?.fullBio) || '(no bio available)';
+    if (dir === 'experience') return (_bio?.experience || []).map(e => `${escHtml(e.title)} @ ${escHtml(e.company)} (${escHtml(e.date)})`).join('<br>') || '(no experience data)';
+    if (dir === 'skills')     return '<b>Offensive:</b> Python, C/C++, x86 Asm, pwntools, Metasploit<br><b>Blue Team:</b> Wazuh SIEM, Elasticsearch, YARA, Wireshark<br><b>Infra:</b> Linux, Docker, Active Directory, AWS';
+    if (dir === 'contact')    return `reach me at <span class="term-file">${escHtml(_bio?.social?.email)}</span>`;
 
     if (dir === 'projects') {
         if (!target) return _projects.map(p => `<span class="term-file">${p.slug}</span>`).join('  ') || '(no projects)';
@@ -198,6 +206,39 @@ function runCmd(raw) {
             renderLog();
             updatePromptEl();
             return;
+        case 'neofetch': {
+            const uptime = Math.floor((Date.now() - performance.timeOrigin) / 60000);
+            out = [
+                '<span class="term-dir">       saranx@portfolio</span>',
+                '       ──────────────────',
+                `<span class="term-file">OS:</span>      saranx.dev v3.1`,
+                `<span class="term-file">Shell:</span>   portfolio-terminal 1.0`,
+                `<span class="term-file">Uptime:</span>  ${uptime} min`,
+                `<span class="term-file">Theme:</span>   ${document.documentElement.dataset.theme || 'dark'}`,
+                `<span class="term-file">Skills:</span>  ${_projects.length} projects · ${_posts.length} posts`,
+                `<span class="term-file">Stack:</span>   Python, C, Bash, JS`,
+                `<span class="term-file">Focus:</span>   offensive security`,
+            ].join('\\n');
+            break;
+        }
+        case 'matrix': {
+            const chars = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ01234567890';
+            const lines = Array.from({ length: 6 }, () =>
+                Array.from({ length: 48 }, () => chars[Math.floor(Math.random() * chars.length)]).join('')
+            );
+            out = `<span style="color:var(--signal);font-size:11px;line-height:1.3;letter-spacing:2px">${lines.join('\\n')}</span>\\n<span class="term-dir">wake up, Neo...</span>`;
+            break;
+        }
+        case 'sudo':
+            out = `<span class="term-error">[sudo] password for guest: \\nguest is not in the sudoers file. this incident will be reported.</span>`;
+            break;
+        case 'rm':
+            if (args.includes('-rf') && (args.includes('/') || args.includes('*'))) {
+                out = `<span class="term-error">rm: PANIC — deleting /dev/saranx... ████████░░ 78%\\n\\n</span><span class="term-dir">just kidding. you're in a sandbox. nice try though.</span>`;
+            } else {
+                out = `<span class="term-error">rm: permission denied (read-only filesystem)</span>`;
+            }
+            break;
         default:
             out = `<span class="term-error">command not found: ${escHtml(name)}. try \`help\`.</span>`;
     }
@@ -250,7 +291,7 @@ export function initTerminal(bio, projects, blogPosts) {
                 let opts = [];
                 if (cmd === 'cd' || cmd === 'cat') {
                     if (!cwd[0]) {
-                        opts = ['about', 'projects', 'blog', 'contact'];
+                        opts = ['about', 'experience', 'projects', 'skills', 'blog', 'contact'];
                     } else if (cwd[0] === 'projects') {
                         opts = _projects.map(p => p.slug);
                     } else if (cwd[0] === 'blog') {

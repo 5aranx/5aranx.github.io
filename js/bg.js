@@ -167,16 +167,16 @@ void main() {
   function updateTheme() {
     const isLight = document.documentElement.dataset.theme === "light";
     if (isLight) {
-      uniforms.uColorDim.value.setRGB(0.75, 0.78, 0.80); // Light silver valleys (fades nicely into white)
-      uniforms.uColorBright.value.setRGB(0.25, 0.28, 0.32); // Deep steel grey peaks (sharp and structural)
-      uniforms.uColorAccent.value.setRGB(0.0, 0.36, 0.71); // Electric blue interaction (matches Option A --accent)
-      uniforms.uSize.value = 4.4; // Larger particles so they don't look like faint dust
+      uniforms.uColorDim.value.setRGB(0.85, 0.85, 0.85); // Silver valleys on white
+      uniforms.uColorBright.value.setRGB(0.25, 0.25, 0.25); // Graphite peaks on white
+      uniforms.uColorAccent.value.setRGB(0.15, 0.15, 0.15); // Dark grey interaction
+      uniforms.uSize.value = 4.4;
       material.blending = THREE.NormalBlending;
     } else {
-      uniforms.uColorDim.value.setRGB(0.12, 0.16, 0.22); // Brighter base so far away particles are visible
-      uniforms.uColorBright.value.setRGB(0.25, 0.4, 0.55); // Richer cool blue peaks
-      uniforms.uColorAccent.value.setRGB(0.0, 1.0, 0.85); // Blazing bright cyan
-      uniforms.uSize.value = 5.0; // Default for dark mode
+      uniforms.uColorDim.value.setRGB(0.22, 0.22, 0.22); // Charcoal valleys on black
+      uniforms.uColorBright.value.setRGB(0.88, 0.88, 0.88); // Silver peaks on black
+      uniforms.uColorAccent.value.setRGB(0.95, 0.95, 0.95); // White interaction
+      uniforms.uSize.value = 5.0;
       material.blending = THREE.AdditiveBlending;
     }
     material.needsUpdate = true;

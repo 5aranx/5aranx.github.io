@@ -13,6 +13,6 @@ export function typeWriter(elId, text, speed) {
     let i = 0;
     const t = setInterval(() => {
         if (i < text.length) { el.textContent += text[i++]; }
-        else { clearInterval(t); }
+        else { clearInterval(t); el.classList.add('prompt-done'); }
     }, speed);
 }

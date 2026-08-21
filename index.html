@@ -4,15 +4,19 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Saransh Singh | Security Research</title>
-
+        <meta name="description" content="Saransh Singh — Security researcher specializing in offensive tooling, vulnerability research, and detection engineering." />
+        <meta property="og:title" content="Saransh Singh | Security Research" />
+        <meta property="og:description" content="Security researcher specializing in offensive tooling, vulnerability research, and detection engineering." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
-        <link rel="stylesheet" href="css/styles.css?v=6" />
+        <link rel="stylesheet" href="css/styles.css?v=7" />
 
         <script>
             window.MathJax = {
@@ -50,6 +54,23 @@
         <script type="module" src="js/main.js?v=5"></script>
     </head>
     <body>
+        <a href="#main-container" class="skip-link">Skip to content</a>
+        <svg class="tex-defs" aria-hidden="true">
+            <defs>
+                <filter id="poster-grain" colorInterpolationFilters="sRGB">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="1" stitchTiles="stitch" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" />
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="1.5" />
+                    </feComponentTransfer>
+                    <feComposite operator="in" in2="SourceGraphic" />
+                    <feBlend mode="overlay" in2="SourceGraphic" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="halftone-layer" aria-hidden="true"></div>
+        <div class="grain-layer" aria-hidden="true"></div>
+        <div class="vignette-layer" aria-hidden="true"></div>
         <canvas id="bg-canvas" aria-hidden="true"></canvas>
         <div id="boot-overlay" aria-live="polite">
             <div id="boot-card">
@@ -65,6 +86,7 @@
 
         <div id="reader-progress" aria-hidden="true"><span></span></div>
 
+        <div id="mobile-menu-overlay" class="mobile-overlay" aria-hidden="true"></div>
         <div id="main-container">
             <header class="sidebar">
                 <div class="terminal-titlebar">
@@ -74,6 +96,9 @@
                         <span class="t-dot t-dot-g"></span>
                     </div>
                     <span class="t-hostname">saranx@192.88:~</span>
+                    <button id="mobile-menu-toggle" class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
 
                 <div class="sidebar-body">
@@ -90,7 +115,7 @@
                             id="profile-pic"
                             src="res/10e2c478e94dce5018d5f34063efb0fd.jpg"
                             alt="Saransh"
-                            onerror="this.src = 'res/10e2c478e94dce5018d5f34063efb0fd.jpg'"
+                            onerror="this.style.background='var(--bg-soft)';this.style.display='grid';this.alt='S'"
                         />
                         <div>
                             <div class="prompt-row">
@@ -144,6 +169,14 @@
                             </li>
                             <li>
                                 <a
+                                    href="#skills"
+                                    data-section="skills"
+                                    class="nav-link"
+                                    >skills</a
+                                >
+                            </li>
+                            <li>
+                                <a
                                     href="#blog"
                                     data-section="blog"
                                     class="nav-link"
@@ -172,15 +205,14 @@
                         <span class="tool-icon" aria-hidden="true">◐</span>
                         <span id="theme-label">dark</span>
                     </button>
-                    <a
-                        href="res/saranx.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        id="resume-open"
                         class="tool-button"
+                        type="button"
                     >
                         <span class="tool-icon" aria-hidden="true">↓</span>
                         <span>resume</span>
-                    </a>
+                    </button>
                 </div>
 
                 <div class="sidebar-socials">
@@ -213,6 +245,12 @@
                     <div class="section-kicker">systems index</div>
                     <h2>Projects</h2>
                     <div id="projects-container" class="card-grid"></div>
+                </section>
+
+                <section id="skills" class="content-section">
+                    <div class="section-kicker">toolkit</div>
+                    <h2>Stack & Tools</h2>
+                    <div id="skills-container" class="skills-grid"></div>
                 </section>
 
                 <section id="blog" class="content-section blog-section">
@@ -264,6 +302,7 @@
                                 type="email"
                                 autocomplete="email"
                                 placeholder="you@example.com"
+                                required
                             />
                         </label>
                         <label>
@@ -282,6 +321,7 @@
                                 name="message"
                                 rows="8"
                                 placeholder="Write the message here"
+                                required
                             ></textarea>
                         </label>
                         <button class="primary-button" type="submit">
@@ -341,6 +381,17 @@
                 </div>
             </div>
         </aside>
+        <aside id="resume-viewer" class="resume-viewer" aria-hidden="true">
+            <div class="resume-backdrop" data-resume-close></div>
+            <div class="resume-panel">
+                <header class="reader-header">
+                    <button class="reader-close" type="button" data-resume-close aria-label="Close resume viewer">×</button>
+                    <a href="res/saranx.pdf" target="_blank" rel="noopener noreferrer" class="tool-button compact" download>↓ download</a>
+                </header>
+                <iframe id="resume-iframe" src="" class="resume-iframe" title="Resume"></iframe>
+            </div>
+        </aside>
+        <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" hidden>↑</button>
         <button id="term-trigger" title="open terminal">&gt;_</button>
         <div id="term-panel" hidden>
             <div id="term-header">
@@ -352,7 +403,8 @@
                 <span id="term-prompt">guest@saranx:~$</span>
                 <input id="term-input" placeholder="try `help`" autocomplete="off" />
             </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="js/bg.js?v=3" defer></script>
+        <script src="js/bg.js?v=4" defer></script>
     </body>
 </html>

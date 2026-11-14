@@ -66,3 +66,10 @@ node --check js/theme.js
 node --check js/bg.js
 node --check js/terminal.js
 ```
+
+---
+
+<div align="center">
+  <sub>Curated with precision for Linux desktop and terminal workflows.</sub><br/>
+  <b>Made by Saransh Singh</b>
+</div>

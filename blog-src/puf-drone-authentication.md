@@ -23,4 +23,4 @@ Real PUF responses are slightly noisy, and a key must come out identical every t
 
 A drone operates far from its owner and can be physically captured. Binding its identity to its own silicon raises the cost of impersonating it, which is the property I wanted to explore.
 
-Source: [github.com/5aranx/PUF-Based-Drone-Authentication-System](https://github.com/5aranx/PUF-Based-Drone-Authentication-System)
+Source: available on request (the repository is currently private).

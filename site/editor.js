@@ -148,6 +148,7 @@ const entries = [
   ...projectEntries.filter((entry) => !entry.parent),
   { id: "work", label: "work/", kind: "work", tile: "work" },
   { id: "talks", label: "talks/", kind: "talks", tile: "talks" },
+  ...(content.pages || []).map((page) => ({ id: page.id, label: page.label, kind: "page", tile: "work", data: page })),
   ...(childrenOf("more").length ? [{ id: "more", label: "more/", kind: "more" }] : []),
   ...(stack ? [{ id: "stack", label: "stack/", kind: "stack", tile: "stack" }] : []),
   { id: "themes", label: "themes/", kind: "themes", tile: "themes" },
@@ -162,9 +163,7 @@ let seenAt = 0;
 function loadSeen() {
   if (document.hidden || Date.now() - seenAt < 600e3) return;
   seenAt = Date.now();
-  load("/api/seen")
-    .then((data) => bar.setSeen(data))
-    .catch(() => {});
+  /* visitor counter needs a backend; none on static hosting */
 }
 function markSeen() {
   let timer = 0;
@@ -174,7 +173,6 @@ function markSeen() {
     timer = setTimeout(() => {
       if (document.hidden) return;
       document.removeEventListener("visibilitychange", arm);
-      navigator.sendBeacon?.("/api/seen");
     }, 1000);
   };
   document.addEventListener("visibilitychange", arm);
@@ -449,6 +447,21 @@ function triptych(files) {
 }
 
 const WHEN_W = 24;
+function pageSpec(page) {
+  const out = page.items.flatMap((item) => [
+    { segments: [[item.when.padEnd(WHEN_W), "t-dim"], item.url ? [item.title, "", item.url] : [item.title, "t-key"]] },
+    { segments: [[" ".repeat(WHEN_W)], [item.desc || ""]], className: "t-hang" },
+  ]);
+  return {
+    cwd: `~/${page.id}`,
+    branch: null,
+    blocks: [
+      { cmd: `fetch ${page.id}/`, out: [fact("entries", page.items.length), { segments: [[page.blurb || "", "t-dim"]] }] },
+      { cmd: `ls ${page.id}/`, out },
+    ],
+  };
+}
+
 function workSpec() {
   const list = content.work || [];
   const jobs = list.filter((item) => item.kind !== "talk");
@@ -538,6 +551,7 @@ function moreSpec() {
 function textOf(entry) {
   if (entry.kind === "work") return (content.work || []).map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
   if (entry.kind === "talks") return (content.talks || []).map((item) => `${item.name} ${item.place} ${item.desc || ""}`).join(" ");
+  if (entry.kind === "page") return entry.data.items.map((item) => `${item.title} ${item.desc || ""}`).join(" ");
   if (entry.kind === "more") return childrenOf("more").map((child) => `${child.data.repo} ${child.data.description || ""}`).join(" ");
   if (entry.kind === "project") return [entry.data.repo, entry.data.description, entry.data.language, entry.data.lines.join(" ")].join(" ");
   if (entry.kind === "about") return content.about.lines.join(" ");
@@ -551,8 +565,9 @@ function barView(entry) {
     return [["STARS", fmt(p.stars)], ["FORKS", fmt(p.forks ?? 0)], ["WATCH", fmt(p.watchers ?? 0)]];
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
-  if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
+  if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", String(Math.min(...(content.work || []).map((w) => parseInt((w.when.match(/\d{4}/) || [9999])[0], 10))))], ["NOW", (content.work || [])[0]?.org?.split(" ")[0].toUpperCase() || "-"]];
   if (entry.kind === "talks") return [["TALKS", String((content.talks || []).length)], ["COUNTRIES", String(new Set((content.talks || []).map((t) => t.place.split(", ").pop()).filter((c) => c !== "Online")).size)], ["SINCE", String(Math.min(...(content.talks || []).map((t) => parseInt((t.when.match(/\d{4}/) || [9999])[0], 10))))]];
+  if (entry.kind === "page") return [["ENTRIES", String(entry.data.items.length)]];
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
   if (entry.kind === "stack") return [["LANGS", String(stack.languages.length)], ["TOOLS", String(stack.tools.length)], ["AI", String(stack.ai?.length ?? 0)]];
   return [["REPOS", fmt(snapshot.stars.repositoryCount)], ["STARS", fmt(snapshot.stars.total)], ["FOLLOWERS", fmt(snapshot.followers)]];
@@ -599,6 +614,11 @@ function open(entry) {
     winbar.textContent = `talks/ — ${(content.talks || []).length} talks`;
     tabFile.textContent = "/talks/";
     terminal.show(talksSpec());
+    cleanup = () => terminal.destroy();
+  } else if (entry.kind === "page") {
+    winbar.textContent = `${entry.label} — ${entry.data.title}`;
+    tabFile.textContent = `/${entry.label}`;
+    terminal.show(pageSpec(entry.data));
     cleanup = () => terminal.destroy();
   } else if (entry.kind === "more") {
     winbar.textContent = `more/ — ${childrenOf("more").length} projects`;

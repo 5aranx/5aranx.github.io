@@ -24,4 +24,6 @@ for f in sorted((ROOT/"blog-src").glob("*.md")):
 posts.sort(reverse=True)
 items = "".join(f'<li class="post"><a href="/blog/{s}/">{html.escape(fm["title"])}</a><div class="meta">{d}</div><div>{html.escape(fm.get("description",""))}</div></li>' for d, s, fm in posts)
 (ROOT/"blog"/"index.html").write_text(page("Field notes", "Notes from Saransh Singh", f"<h1>Field notes</h1><ul>{items}</ul>"))
-print(f"built {len(posts)} posts")
+urls = ["/", "/site/", "/blog/"] + [f"/blog/{s}/" for _, s, _ in posts]
+(ROOT/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://5aranx.github.io{u}</loc></url>\n" for u in urls) + "</urlset>\n")
+print(f"built {len(posts)} posts + sitemap")

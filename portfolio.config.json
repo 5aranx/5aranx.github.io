@@ -113,7 +113,7 @@
       "tag": "A drone that proves who it is from its silicon.",
       "desc": "A drone that proves who it is from its silicon.",
       "long": "A UAV authentication system built on Physical Unclonable Functions (PUFs), so each drone is identified from its silicon rather than from a stored credential. Keys are derived on demand from the PUF response, which means no secret key is kept on the device - nothing at rest to extract or clone.",
-      "githubRepo": "5aranx/PUF-Based-Drone-Authentication-System",
+      "githubRepo": "",
       "shots": [
         "shots/puf-drone-auth.webp"
       ],
@@ -122,8 +122,7 @@
         "UAV",
         "Hardware Security",
         "Key Derivation"
-      ],
-      "url": "https://github.com/5aranx/PUF-Based-Drone-Authentication-System"
+      ]
     },
     {
       "name": "Mayavi",
@@ -232,7 +231,7 @@
       "tag": "HTTP/S command & control with encrypted beaconing.",
       "desc": "HTTP/S command & control with encrypted beaconing.",
       "long": "HTTP/S command & control framework with AES-GCM encrypted beaconing, modular plugin architecture, and dynamic payload generation. Supports multi-client management, task queuing, encrypted exfiltration, and jitter-based beacon timing for OpSec.",
-      "githubRepo": "",
+      "githubRepo": "5aranx/ShadowGate",
       "shots": [
         "shots/shadowgate.webp"
       ],
@@ -243,7 +242,8 @@
         "Threading",
         "JSON-RPC"
       ],
-      "more": true
+      "more": true,
+      "url": "https://github.com/5aranx/ShadowGate"
     },
     {
       "name": "PhantomRecon",
@@ -398,6 +398,138 @@
     {
       "name": "Canvas 2D",
       "via": "intro + contribution ink"
+    }
+  ],
+  "pages": [
+    {
+      "id": "blog",
+      "label": "blog/",
+      "title": "Field notes",
+      "blurb": "Write-ups on hardware security, embedded firmware and tooling.",
+      "items": [
+        {
+          "when": "2026-11-24",
+          "title": "Mayavi: the decisions behind a BLE HID framework on the ESP32-S3",
+          "url": "/blog/mayavi-ble-hid-esp32s3/",
+          "desc": "What it takes to make one ESP32-S3 behave as a keyboard, mouse, gamepad and media remote, and which security trade-offs I chose to document instead of hide."
+        },
+        {
+          "when": "2026-11-18",
+          "title": "No key at rest: identifying a drone from its silicon",
+          "url": "/blog/puf-drone-authentication/",
+          "desc": "Why I built a UAV authentication system on Physical Unclonable Functions, and what it means for a device to have no stored secret to steal."
+        },
+        {
+          "when": "2026-11-12",
+          "title": "Drax: scanning Android apps that defend themselves",
+          "url": "/blog/scanning-rasp-protected-apps-with-drax/",
+          "desc": "Notes on building a mobile app security scanner whose checks keep working when the app under test is protected by RASP."
+        },
+        {
+          "when": "2025-01-15",
+          "title": "Wazuh SIEM Lab: Building a Home SOC from Scratch",
+          "url": "/blog/wazuh-siem-home-soc/",
+          "desc": "Deploying Wazuh in Docker, writing custom detection rules, building dashboards and validating coverage, with MITRE ATT&CK mapping and an automated alert pipeline."
+        }
+      ]
+    },
+    {
+      "id": "resume",
+      "label": "resume/",
+      "title": "Resumes",
+      "blurb": "Three tracks of the same background. Pick the one closest to the role.",
+      "items": [
+        {
+          "when": "PDF",
+          "title": "Security resume",
+          "url": "/resumes/Saransh_Singh_Security.pdf",
+          "desc": "Offensive security, detection engineering, Android and web testing."
+        },
+        {
+          "when": "PDF",
+          "title": "Embedded resume",
+          "url": "/resumes/Saransh_Singh_Embedded.pdf",
+          "desc": "ESP32-S3 firmware, BLE/Wi-Fi, PUF-based hardware authentication."
+        },
+        {
+          "when": "PDF",
+          "title": "Networking resume",
+          "url": "/resumes/Saransh_Singh_Networking.pdf",
+          "desc": "Network and infrastructure focused."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "research/",
+      "title": "Security research",
+      "blurb": "Focus areas and public tooling. Disclosed findings are added once the programs allow publication.",
+      "items": [
+        {
+          "when": "focus",
+          "title": "Web and API",
+          "desc": "IDOR/BOLA, authentication and authorisation flaws, business logic, SSRF, SQL injection, stored XSS, race conditions."
+        },
+        {
+          "when": "focus",
+          "title": "Mobile",
+          "desc": "Android app analysis with Frida and ADB, including apps protected by RASP."
+        },
+        {
+          "when": "focus",
+          "title": "Hardware",
+          "desc": "BLE and Wi-Fi on ESP32-S3, PUF-based device identity."
+        },
+        {
+          "when": "tool",
+          "title": "Drax",
+          "desc": "Mobile app security scanner that keeps working inside RASP-protected apps."
+        },
+        {
+          "when": "lab",
+          "title": "Labs",
+          "url": "https://github.com/5aranx/Labs",
+          "desc": "Disposable offensive security labs for training and CTF practice."
+        },
+        {
+          "when": "policy",
+          "title": "Responsible disclosure",
+          "url": "/.well-known/security.txt",
+          "desc": "How to report a vulnerability in this site."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "label": "contact/",
+      "title": "Contact",
+      "blurb": "Open to internships and collaboration.",
+      "items": [
+        {
+          "when": "email",
+          "title": "saranshsingh2006@gmail.com",
+          "url": "mailto:saranshsingh2006@gmail.com",
+          "desc": "Best way to reach me."
+        },
+        {
+          "when": "github",
+          "title": "github.com/5aranx",
+          "url": "https://github.com/5aranx",
+          "desc": "Code and projects."
+        },
+        {
+          "when": "linkedin",
+          "title": "linkedin.com/in/mastermorphix",
+          "url": "https://www.linkedin.com/in/mastermorphix",
+          "desc": "Professional profile."
+        },
+        {
+          "when": "security",
+          "title": "security.txt",
+          "url": "/.well-known/security.txt",
+          "desc": "Report a vulnerability in this site."
+        }
+      ]
     }
   ]
 }

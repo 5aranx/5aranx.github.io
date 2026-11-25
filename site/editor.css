@@ -1926,3 +1926,6 @@ a.md-link:hover {
 .term-shot .frame:focus-within img {
   filter: none;
 }
+
+/* no backend on static hosting: hide the visitor graph */
+.bar-graph { display: none !important; }

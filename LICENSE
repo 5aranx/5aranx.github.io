@@ -1,0 +1,14 @@
+Copyright (c) 2026 Saransh Singh. All rights reserved.
+
+The original content in this repository - text, blog posts (posts/), projects,
+résumés (resumes/), images (images/, logo/) and branding - is the property of
+Saransh Singh. You may view it, but you may not copy, redistribute, republish,
+modify or use it for any purpose, including training machine-learning models,
+without prior written permission.
+
+Third-party material is NOT covered by this license. The page layout, styling,
+animations and front-end code are derived from a third-party template and remain
+the property of their original author. Fonts and bundled JavaScript libraries
+(React, Next.js, GSAP and others) keep their own licenses.
+
+Forking on GitHub is permitted only to the extent GitHub's Terms of Service allow it.

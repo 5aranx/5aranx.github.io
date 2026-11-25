@@ -21,3 +21,9 @@ Posts are markdown files in `posts/` (front matter: title, description, date, ta
 After adding or editing one, run `python3 tools/build_blog.py` — it regenerates `blog/`,
 the home-page "Field notes" section and the matching React payload. The three starter
 posts are drafts; edit or replace them.
+
+## Security
+Static site on GitHub Pages: no server, database, accounts or uploads. Every page ships a
+Content-Security-Policy (per-script hashes), referrer policy and frame-busting, added by
+`python3 tools/harden.py` (also run by `tools/build_blog.py`). Re-run it after hand-editing
+any HTML. See `SECURITY.md`. Content is © Saransh Singh, all rights reserved (see `LICENSE`).

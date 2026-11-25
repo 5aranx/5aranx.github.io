@@ -1,5 +1,12 @@
-node_modules/
 .DS_Store
-*.swp
-*.swo
 .env
+.env.*
+id_rsa*
+*.key
+*.map
+node_modules/
+*.p12
+*.pem
+__pycache__/
+*.swo
+*.swp

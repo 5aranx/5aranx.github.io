@@ -307,4 +307,5 @@ if __name__ == '__main__':
     for k, p in enumerate(posts):
         build_post(p, posts[k + 1] if k + 1 < len(posts) else None, posts[k - 1] if k else None)   # prev=older, next=newer
     build_index(posts); build_home(posts)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import harden; harden.run()   # re-apply CSP hashes to regenerated pages
     print('built %d posts: %s' % (len(posts), ', '.join(p['slug'] for p in posts)))

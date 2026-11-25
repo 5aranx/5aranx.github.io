@@ -1,0 +1,4 @@
+Contact: mailto:saranshsingh2006@gmail.com
+Expires: 2027-11-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://5aranx.github.io/.well-known/security.txt

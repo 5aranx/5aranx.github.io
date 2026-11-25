@@ -110,6 +110,18 @@ def blocks(md):
             j = i; q = []
             while j < len(lines) and lines[j].startswith('>'): q.append(lines[j][1:].strip()); j += 1
             out.append(('blockquote', {}, ['\n', ('p', {}, inline(' '.join(q))), '\n'])); i = j; continue
+        if ln.startswith('|') and i + 1 < len(lines) and re.match(r'\|[\s:|-]+\|?\s*$', lines[i + 1]):
+            rows = []; j = i
+            while j < len(lines) and lines[j].startswith('|'): rows.append(lines[j]); j += 1
+            cells = lambda r: [c.strip() for c in r.strip().strip('|').split('|')]
+            def tr(cs, tag):
+                ch = ['\n']
+                for c_ in cs: ch += [(tag, {}, inline(c_)), '\n']
+                return ('tr', {}, ch)
+            thead = ('thead', {}, ['\n', tr(cells(rows[0]), 'th'), '\n'])
+            tb = ['\n']
+            for r_ in rows[2:]: tb += [tr(cells(r_), 'td'), '\n']
+            out.append(('table', {}, ['\n', thead, '\n', ('tbody', {}, tb), '\n'])); i = j; continue
         m = re.match(r'(-|\*|\d+\.) ', ln)
         if m:
             ordered = m.group(1)[0].isdigit(); items = []; j = i

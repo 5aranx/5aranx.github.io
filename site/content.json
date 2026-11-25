@@ -1,6 +1,6 @@
 {
  "owner": "5aranx",
- "fetchedAt": "2026-11-25T20:58:59.780Z",
+ "fetchedAt": "2026-11-25T21:10:35.186Z",
  "about": {
   "repo": "5aranx",
   "lines": [
@@ -1104,17 +1104,19 @@
    "lon": 77.21,
    "desc": "Attended Semicon India 2025, the semiconductor industry expo.",
    "url": "",
-   "photos": []
+   "photos": [],
+   "photo": "photos/semicon.webp"
   },
   {
-   "name": "DMUN 2024",
+   "name": "DMUN USA 2024",
    "place": "Online",
    "when": "2024",
    "lat": 0,
    "lon": 0,
-   "desc": "Delegate at DMUN 2024 (online Model UN), representing the United States.",
+   "desc": "Delegate at DMUN USA 2024 (online Model UN), representing the United States.",
    "url": "",
-   "photos": []
+   "photos": [],
+   "photo": "photos/dmun.webp"
   },
   {
    "name": "Tryst - IIT Delhi",
@@ -1124,7 +1126,8 @@
    "lon": 77.19,
    "desc": "Attended Tryst 2025, the annual tech fest at IIT Delhi.",
    "url": "",
-   "photos": []
+   "photos": [],
+   "photo": "photos/tryst.webp"
   }
  ],
  "links": [

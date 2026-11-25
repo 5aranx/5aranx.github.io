@@ -183,9 +183,9 @@ def meta_row(prefix, title, desc, article=None):
     items += [['$', 'meta', str(k), {'name': 'twitter:card', 'content': 'summary'}],
               ['$', 'meta', str(k + 1), {'name': 'twitter:title', 'content': title}],
               ['$', 'meta', str(k + 2), {'name': 'twitter:description', 'content': desc}]]; k += 3
-    items += [['$', 'link', str(k), {'rel': 'icon', 'href': '/favicon.ico', 'type': 'image/x-icon', 'sizes': '64x64'}],
-              ['$', 'link', str(k + 1), {'rel': 'icon', 'href': '/icon.png?9e65046cef7fa820', 'type': 'image/png', 'sizes': '460x460'}],
-              ['$', 'link', str(k + 2), {'rel': 'apple-touch-icon', 'href': '/apple-icon.png?9e65046cef7fa820', 'type': 'image/png', 'sizes': '460x460'}],
+    items += [['$', 'link', str(k), {'rel': 'icon', 'href': '/favicon.ico?v=av2', 'type': 'image/x-icon', 'sizes': '64x64'}],
+              ['$', 'link', str(k + 1), {'rel': 'icon', 'href': '/icon.png?v=av2', 'type': 'image/png', 'sizes': '460x460'}],
+              ['$', 'link', str(k + 2), {'rel': 'apple-touch-icon', 'href': '/apple-icon.png?v=av2', 'type': 'image/png', 'sizes': '460x460'}],
               ['$', '$L27' if prefix == 'f' else '$L1b', str(k + 3), {}]]
     row = prefix + ':' + json.dumps({'metadata': items, 'error': None, 'digest': '$undefined'}, separators=(',', ':'), ensure_ascii=False) + '\n'
     return '<script>self.__next_f.push([1,"%s"])</script>' % outer(row)

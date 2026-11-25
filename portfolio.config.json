@@ -1,0 +1,369 @@
+{
+  "identity": {
+    "name": "Saransh Singh",
+    "barTitle": "SARANSH SINGH",
+    "terminalUser": "saransh",
+    "domain": "5aranx.github.io",
+    "tagline": "security from silicon to software.",
+    "github": "5aranx",
+    "storagePrefix": "5aranx"
+  },
+  "about": {
+    "bio": "I work from silicon to software - writing ESP32-S3 firmware for BLE and Wi-Fi, authenticating drones with PUFs, and taking Android apps apart with Frida. From reconnaissance to privilege escalation, I care about how the whole stack holds up.",
+    "extra": "Sonipat, India · B.Tech ECE, DCRUST"
+  },
+  "links": [
+    {
+      "label": "Email",
+      "url": "mailto:saranshsingh2006@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/5aranx"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mastermorphix"
+    },
+    {
+      "label": "Blog",
+      "url": "https://5aranx.github.io/blog/"
+    },
+    {
+      "label": "Resume (Security)",
+      "url": "https://5aranx.github.io/resumes/Saransh_Singh_Security.pdf"
+    },
+    {
+      "label": "Resume (Embedded)",
+      "url": "https://5aranx.github.io/resumes/Saransh_Singh_Embedded.pdf"
+    },
+    {
+      "label": "Resume (Networking)",
+      "url": "https://5aranx.github.io/resumes/Saransh_Singh_Networking.pdf"
+    }
+  ],
+  "work": [
+    {
+      "when": "May 2026 – Jun 2026",
+      "title": "Cyber Security Intern",
+      "org": "SafeSkillz Ltd.",
+      "where": "London (Remote)",
+      "desc": "Android forensics and Linux and Windows exploitation, with every attack chain documented end to end."
+    },
+    {
+      "when": "2024 – Present",
+      "title": "Security Researcher",
+      "org": "Independent",
+      "where": "Remote",
+      "desc": "Independent / CTF Teams"
+    },
+    {
+      "when": "2024 – Present",
+      "title": "SOC / Detection Engineering (Lab)",
+      "org": "Home Lab",
+      "where": "Home lab",
+      "desc": "Home Lab Infrastructure"
+    },
+    {
+      "when": "2023 – 2024",
+      "title": "Offensive Security (Training Pathway)",
+      "org": "Training Labs",
+      "where": "Online",
+      "desc": "HTB, TryHackMe, Proving Grounds"
+    },
+    {
+      "when": "Mar 2025 – 2026",
+      "title": "Organiser & Coordinator",
+      "org": "Leadership",
+      "where": "DCRUST Murthal",
+      "desc": "Running national-level and university events at DCRUST, plus a year as a Senior Under Officer in the NCC."
+    },
+    {
+      "when": "Jun 2026",
+      "title": "OCFA - Critical Infrastructure Security",
+      "org": "OPSWAT",
+      "where": "Certification",
+      "desc": "Certification"
+    },
+    {
+      "when": "Jun 2026",
+      "title": "OFSA - File Security & Threat Analysis",
+      "org": "OPSWAT",
+      "where": "Certification",
+      "desc": "Certification"
+    },
+    {
+      "when": "Jun 2026",
+      "title": "OECA - Endpoint Compliance Associate",
+      "org": "OPSWAT",
+      "where": "Certification",
+      "desc": "Certification"
+    },
+    {
+      "when": "Jun 2026",
+      "title": "ODSA - Data Security Associate",
+      "org": "OPSWAT",
+      "where": "Certification",
+      "desc": "Certification"
+    }
+  ],
+  "projects": [
+    {
+      "name": "PUF Drone Authentication",
+      "tag": "A drone that proves who it is from its silicon.",
+      "desc": "A drone that proves who it is from its silicon.",
+      "long": "A UAV authentication system built on Physical Unclonable Functions (PUFs), so each drone is identified from its silicon rather than from a stored credential. Keys are derived on demand from the PUF response, which means no secret key is kept on the device - nothing at rest to extract or clone.",
+      "githubRepo": "5aranx/PUF-Based-Drone-Authentication-System",
+      "shots": [
+        "shots/puf-drone-auth.webp"
+      ],
+      "stack": [
+        "PUF",
+        "UAV",
+        "Hardware Security",
+        "Key Derivation"
+      ],
+      "url": "https://github.com/5aranx/PUF-Based-Drone-Authentication-System"
+    },
+    {
+      "name": "Mayavi",
+      "tag": "One ESP32-S3 that is a keyboard, mouse, gamepad and media remote.",
+      "desc": "One ESP32-S3 that is a keyboard, mouse, gamepad and media remote.",
+      "long": "ESP32-S3 firmware that acts as a Bluetooth LE HID device - keyboard, mouse, gamepad and media remote - with 11 selectable profiles, plus a Wi-Fi access point with a browser dashboard and a serial console. A non-blocking payload runner sits on NVS-backed settings and a LittleFS-hosted JSON API. Authorized-use limits and security trade-offs, such as the open access point default and Just Works pairing, are documented.",
+      "githubRepo": "5aranx/Mayavi",
+      "shots": [
+        "shots/mayavi.webp"
+      ],
+      "stack": [
+        "ESP32-S3",
+        "C++",
+        "PlatformIO",
+        "BLE",
+        "Wi-Fi AP",
+        "LittleFS",
+        "NVS"
+      ],
+      "url": "https://github.com/5aranx/Mayavi"
+    },
+    {
+      "name": "Drax",
+      "tag": "A mobile app security scanner that survives RASP.",
+      "desc": "A mobile app security scanner that survives RASP.",
+      "long": "A Python scanner with an Android agent over ADB, built to keep working inside RASP-protected apps. About 50 static, dynamic and Frida-based checks. For authorised assessments only.",
+      "githubRepo": "",
+      "shots": [
+        "shots/drax.webp"
+      ],
+      "stack": [
+        "Python",
+        "Android",
+        "ADB",
+        "Frida"
+      ]
+    },
+    {
+      "name": "Labs",
+      "tag": "Disposable labs for security training and CTF practice.",
+      "desc": "Disposable labs for security training and CTF practice.",
+      "long": "Disposable offensive security labs for training and CTF practice, including a file upload lab with 6 filter-bypass challenges.",
+      "githubRepo": "5aranx/Labs",
+      "shots": [
+        "shots/labs.webp"
+      ],
+      "stack": [
+        "PHP",
+        "Apache",
+        "Linux",
+        "Bash"
+      ],
+      "url": "https://github.com/5aranx/Labs"
+    },
+    {
+      "name": "Quarters",
+      "tag": "A self-hostable pixel-art HQ for your whole team.",
+      "desc": "A self-hostable pixel-art HQ for your whole team.",
+      "long": "A pixel-art virtual HQ with proximity voice and video and Discord-style spaces. One deploy serves a whole team.",
+      "githubRepo": "",
+      "shots": [
+        "shots/quarters.webp"
+      ],
+      "stack": [
+        "Realtime",
+        "Pixel Art",
+        "Self-hosted"
+      ]
+    },
+    {
+      "name": "SaviOS Desktop",
+      "tag": "An Arch desktop rebuilt from one script.",
+      "desc": "An Arch desktop rebuilt from one script.",
+      "long": "A reproducible Arch Linux desktop - CachyOS kernel, Hyprland and Quickshell - rebuilt from scratch by one idempotent install script.",
+      "githubRepo": "",
+      "shots": [
+        "shots/savios.webp"
+      ],
+      "stack": [
+        "Arch Linux",
+        "Hyprland",
+        "Quickshell",
+        "Shell"
+      ],
+      "more": true
+    },
+    {
+      "name": "Ryoku",
+      "tag": "Open-source fix: battery reporting on multi-battery systems.",
+      "desc": "Open-source fix: battery reporting on multi-battery systems.",
+      "long": "Open-source contribution (Nov 2026): fixed incorrect battery reporting on multi-battery systems so readouts show total charge, not just the first pack.",
+      "githubRepo": "Ryoku-dev/ryoku",
+      "shots": [
+        "shots/ryoku.webp"
+      ],
+      "stack": [
+        "Open Source",
+        "Git",
+        "GitHub"
+      ],
+      "url": "https://github.com/Ryoku-dev/ryoku",
+      "more": true
+    },
+    {
+      "name": "ShadowGate",
+      "tag": "HTTP/S command & control with encrypted beaconing.",
+      "desc": "HTTP/S command & control with encrypted beaconing.",
+      "long": "HTTP/S command & control framework with AES-GCM encrypted beaconing, modular plugin architecture, and dynamic payload generation. Supports multi-client management, task queuing, encrypted exfiltration, and jitter-based beacon timing for OpSec.",
+      "githubRepo": "",
+      "shots": [
+        "shots/shadowgate.webp"
+      ],
+      "stack": [
+        "Python",
+        "AES-GCM",
+        "HTTP/S",
+        "Threading",
+        "JSON-RPC"
+      ],
+      "more": true
+    },
+    {
+      "name": "PhantomRecon",
+      "tag": "An automated recon pipeline with pluggable scanners.",
+      "desc": "An automated recon pipeline with pluggable scanners.",
+      "long": "Automated reconnaissance toolkit: subdomain enumeration via passive sources, port scanning with service fingerprinting, technology stack detection, and screenshot capture. Pipeline architecture with modular scanner plugins and structured JSON output.",
+      "githubRepo": "",
+      "shots": [
+        "shots/phantomrecon.webp"
+      ],
+      "stack": [
+        "Python",
+        "asyncio",
+        "aiohttp",
+        "Shodan API",
+        "Masscan"
+      ],
+      "more": true
+    },
+    {
+      "name": "Wazuh Sentinel",
+      "tag": "40+ custom Wazuh rules mapped to MITRE ATT&CK.",
+      "desc": "40+ custom Wazuh rules mapped to MITRE ATT&CK.",
+      "long": "Custom SIEM detection engine: 40+ custom Wazuh rules mapped to MITRE ATT&CK covering T1055 (Process Injection), T1078 (Valid Accounts), T1003 (Credential Dumping), and T1482 (Domain Trust Discovery). Automated alert triage pipeline with Slack notification routing.",
+      "githubRepo": "",
+      "shots": [
+        "shots/wazuh-sentinel.webp"
+      ],
+      "stack": [
+        "Wazuh",
+        "Elasticsearch",
+        "Python",
+        "YAML",
+        "MITRE ATT&CK"
+      ],
+      "more": true
+    },
+    {
+      "name": "BinaryForge",
+      "tag": "A binary exploitation framework for x86/x64 Linux.",
+      "desc": "A binary exploitation framework for x86/x64 Linux.",
+      "long": "Binary exploitation framework: ROP chain builder, buffer overflow exploit generator, and format string vulnerability testing harness. Supports x86/x64 Linux targets with PIE/ASLR/NX bypass techniques and position-independent shellcode execution.",
+      "githubRepo": "",
+      "shots": [
+        "shots/binaryforge.webp"
+      ],
+      "stack": [
+        "Python",
+        "pwntools",
+        "x86_64 Assembly",
+        "ROP",
+        "ELF"
+      ],
+      "more": true
+    },
+    {
+      "name": "PacketSentry",
+      "tag": "A network intrusion detection system on raw sockets and BPF.",
+      "desc": "A network intrusion detection system on raw sockets and BPF.",
+      "long": "Network intrusion detection system using raw sockets and BPF for real-time packet capture and analysis. Detects port scans, ARP spoofing, DNS tunneling, and SYN floods with custom signature-based alerting and PCAP export.",
+      "githubRepo": "",
+      "shots": [
+        "shots/packetsentry.webp"
+      ],
+      "stack": [
+        "C",
+        "libpcap",
+        "BPF",
+        "TCP/IP Stack",
+        "Linux Raw Sockets"
+      ],
+      "more": true
+    },
+    {
+      "name": "ForgeProxy",
+      "tag": "An HTTP/HTTPS intercept proxy for web app testing.",
+      "desc": "An HTTP/HTTPS intercept proxy for web app testing.",
+      "long": "HTTP/HTTPS intercept proxy for web application testing. Request/response inspection, modification, and replay with built-in CA certificate generation for TLS interception. WebSocket support and automated fuzzing integration.",
+      "githubRepo": "",
+      "shots": [
+        "shots/forgeproxy.webp"
+      ],
+      "stack": [
+        "Python",
+        "asyncio",
+        "HTTP/1.1",
+        "TLS",
+        "mitmproxy"
+      ],
+      "more": true
+    },
+    {
+      "name": "CryptoBreach",
+      "tag": "Classic crypto attacks, implemented to learn from them.",
+      "desc": "Classic crypto attacks, implemented to learn from them.",
+      "long": "Cryptographic attack toolkit: implementations of Bleichenbacher's padding oracle attack, RSA timing side-channel, hash length extension, and format-preserving oracle attacks. Educational tool for understanding real-world crypto vulnerabilities.",
+      "githubRepo": "",
+      "shots": [
+        "shots/cryptobreach.webp"
+      ],
+      "stack": [
+        "Python",
+        "Cryptography",
+        "SageMath",
+        "NumPy",
+        "asn1crypto"
+      ],
+      "more": true
+    }
+  ],
+  "talks": [],
+  "wallRepos": [],
+  "siteStack": [
+    {
+      "name": "Vanilla JS",
+      "via": "zero-build frontend"
+    },
+    {
+      "name": "Canvas 2D",
+      "via": "intro + contribution ink"
+    }
+  ]
+}

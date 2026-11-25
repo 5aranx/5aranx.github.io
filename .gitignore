@@ -1,12 +1,5 @@
 .DS_Store
-.env
-.env.*
-id_rsa*
-*.key
-*.map
+.venv/
 node_modules/
-*.p12
-*.pem
 __pycache__/
-*.swo
-*.swp
+*.pyc

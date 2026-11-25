@@ -1,0 +1,128 @@
+{
+ "from": "2026-01-01",
+ "to": "2026-11-25",
+ "fetchedAt": "2026-11-25T20:30:03.286Z",
+ "scope": "GitHub-attributed public commit contributions per repository and month",
+ "months": [
+  {
+   "month": "2026-01",
+   "top": []
+  },
+  {
+   "month": "2026-02",
+   "top": [
+    {
+     "repo": "suckless",
+     "owner": "5aranx",
+     "commits": 1
+    }
+   ]
+  },
+  {
+   "month": "2026-03",
+   "top": []
+  },
+  {
+   "month": "2026-04",
+   "top": []
+  },
+  {
+   "month": "2026-05",
+   "top": []
+  },
+  {
+   "month": "2026-06",
+   "top": [
+    {
+     "repo": "networking-vault",
+     "owner": "5aranx",
+     "commits": 11
+    },
+    {
+     "repo": "digital-forensics-lab",
+     "owner": "5aranx",
+     "commits": 4
+    },
+    {
+     "repo": "Suckless",
+     "owner": "prtmxio",
+     "commits": 1
+    }
+   ]
+  },
+  {
+   "month": "2026-07",
+   "top": [
+    {
+     "repo": "5aranx.github.io",
+     "owner": "5aranx",
+     "commits": 5
+    },
+    {
+     "repo": "Tide-island",
+     "owner": "enhaoswen",
+     "commits": 2
+    },
+    {
+     "repo": "Labs",
+     "owner": "5aranx",
+     "commits": 1
+    }
+   ]
+  },
+  {
+   "month": "2026-08",
+   "top": [
+    {
+     "repo": "5aranx.github.io",
+     "owner": "5aranx",
+     "commits": 6
+    }
+   ]
+  },
+  {
+   "month": "2026-09",
+   "top": []
+  },
+  {
+   "month": "2026-10",
+   "top": [
+    {
+     "repo": "Mayavi",
+     "owner": "5aranx",
+     "commits": 1
+    }
+   ]
+  },
+  {
+   "month": "2026-11",
+   "top": [
+    {
+     "repo": "5aranx",
+     "owner": "5aranx",
+     "commits": 14
+    },
+    {
+     "repo": "5aranx.github.io",
+     "owner": "5aranx",
+     "commits": 8
+    },
+    {
+     "repo": "DESIGN-AND-FABRICATION-OF-A-REMOTE-CONTROLLED-18-DOF-HEXAPOD-ROBOT-FOR-ROUGH-TERRAIN-NAVIGATION",
+     "owner": "5aranx",
+     "commits": 6
+    },
+    {
+     "repo": "DCRUST",
+     "owner": "Vishvjeetdahiya",
+     "commits": 2
+    },
+    {
+     "repo": "ryoku",
+     "owner": "Ryoku-dev",
+     "commits": 2
+    }
+   ]
+  }
+ ]
+}

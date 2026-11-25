@@ -354,7 +354,38 @@
       "more": true
     }
   ],
-  "talks": [],
+  "talks": [
+    {
+      "name": "Semicon India 2025",
+      "place": "New Delhi, India",
+      "when": "Sep 2025",
+      "lat": 28.61,
+      "lon": 77.21,
+      "desc": "Attended Semicon India 2025, the semiconductor industry expo.",
+      "url": "",
+      "photos": []
+    },
+    {
+      "name": "DMUN 2024",
+      "place": "Online",
+      "when": "2024",
+      "lat": 0,
+      "lon": 0,
+      "desc": "Delegate at DMUN 2024 (online Model UN), representing the United States.",
+      "url": "",
+      "photos": []
+    },
+    {
+      "name": "Tryst - IIT Delhi",
+      "place": "New Delhi, India",
+      "when": "2025",
+      "lat": 28.545,
+      "lon": 77.19,
+      "desc": "Attended Tryst 2025, the annual tech fest at IIT Delhi.",
+      "url": "",
+      "photos": []
+    }
+  ],
   "wallRepos": [],
   "siteStack": [
     {

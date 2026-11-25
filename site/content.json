@@ -1,6 +1,6 @@
 {
  "owner": "5aranx",
- "fetchedAt": "2026-11-25T20:30:03.286Z",
+ "fetchedAt": "2026-11-25T20:58:59.780Z",
  "about": {
   "repo": "5aranx",
   "lines": [
@@ -312,7 +312,7 @@
    "url": "https://github.com/Ryoku-dev/ryoku",
    "description": "Open-source fix: battery reporting on multi-battery systems.",
    "tag": "Open-source fix: battery reporting on multi-battery systems.",
-   "stars": 2144,
+   "stars": 2145,
    "language": "QML",
    "pushed": "2026-11-22",
    "forks": 142,
@@ -1095,7 +1095,38 @@
    "desc": "Certification"
   }
  ],
- "talks": [],
+ "talks": [
+  {
+   "name": "Semicon India 2025",
+   "place": "New Delhi, India",
+   "when": "Sep 2025",
+   "lat": 28.61,
+   "lon": 77.21,
+   "desc": "Attended Semicon India 2025, the semiconductor industry expo.",
+   "url": "",
+   "photos": []
+  },
+  {
+   "name": "DMUN 2024",
+   "place": "Online",
+   "when": "2024",
+   "lat": 0,
+   "lon": 0,
+   "desc": "Delegate at DMUN 2024 (online Model UN), representing the United States.",
+   "url": "",
+   "photos": []
+  },
+  {
+   "name": "Tryst - IIT Delhi",
+   "place": "New Delhi, India",
+   "when": "2025",
+   "lat": 28.545,
+   "lon": 77.19,
+   "desc": "Attended Tryst 2025, the annual tech fest at IIT Delhi.",
+   "url": "",
+   "photos": []
+  }
+ ],
  "links": [
   {
    "label": "Email",

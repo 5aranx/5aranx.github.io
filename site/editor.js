@@ -31,7 +31,7 @@ const barHost = $(".bar");
 const cmdNode = $(".bar .cmd");
 
 const load = (url) =>
-  fetch(url).then((response) => {
+  fetch(url, { cache: "no-cache" }).then((response) => {
     if (!response.ok) throw new Error(`${url}: ${response.status}`);
     return response.json();
   });

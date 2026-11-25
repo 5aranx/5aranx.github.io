@@ -346,6 +346,7 @@ write("site/content.json", {
   themeThumbs,
   work: CONFIG.work || [],
   talks: CONFIG.talks || [],
+  pages: CONFIG.pages || [],
   links: CONFIG.links || [],
   more: MORE,
 });

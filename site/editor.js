@@ -318,7 +318,7 @@ function projectSpec(project) {
     blocks: [
       { cmd: `fetch ${project.repo}`, out },
       { cmd: "ls shots/", viewer: true },
-      { cmd: `open ${url.replace(/^https:\/\//, "")}`, link: { text: url.replace(/^https:\/\//, ""), href: url } },
+      ...(url ? [{ cmd: `open ${url.replace(/^https:\/\//, "")}`, link: { text: url.replace(/^https:\/\//, ""), href: url } }] : []),
     ],
   };
 }
